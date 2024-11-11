@@ -21,13 +21,13 @@ import { ReactComponent as UrgentPriorityIcon } from '../assets/icons_FEtask/SVG
 
 import Card from '../components/Card';
 const Home = () => {
-    const [data, setData] = useState(null); // Stores fetched data
-    const [loading, setLoading] = useState(true); // Tracks loading state
-    const [error, setError] = useState(null); // Stores error message, if any
+    const [data, setData] = useState(null); 
+    const [loading, setLoading] = useState(true); 
+    const [error, setError] = useState(null); 
     const [grouping, setGrouping] = useState('Status');
     const [ordering, setOrdering] = useState('Priority');
 
-    // Retrieve saved settings from localStorage if available
+   
     useEffect(() => {
       const savedGrouping = localStorage.getItem('grouping');
       const savedOrdering = localStorage.getItem('ordering');
@@ -40,14 +40,14 @@ const Home = () => {
       }
     }, []);
 
-    // Save settings to localStorage whenever they change
+    
     useEffect(() => {
       localStorage.setItem('grouping', grouping);
       localStorage.setItem('ordering', ordering);
     }, [grouping, ordering]);
 
     useEffect(() => {
-      // Define the asynchronous fetch function
+      
       const fetchData = async () => {
         try {
           const response = await fetch("https://api.quicksell.co/v1/internal/frontend-assignment");
@@ -55,16 +55,16 @@ const Home = () => {
             throw new Error("Failed to fetch data");
           }
           const result = await response.json();
-          setData(result); // Set data to state
+          setData(result); 
         } catch (err) {
-          setError(err.message); // Set error to state
+          setError(err.message); 
         } finally {
-          setLoading(false); // Set loading to false when fetch completes
+          setLoading(false); 
         }
       };
   
       fetchData();
-    }, []); // Empty dependency array ensures this runs only once after the component mounts
+    }, []); 
     useEffect(()=>{
         console.log(data)
     },[data])
@@ -93,13 +93,13 @@ const Home = () => {
     };
     
 
-    // Function to sort tickets based on selected ordering (Priority or Title)
+   
   const sortTickets = (tickets) => {
     return tickets.sort((a, b) => {
       if (ordering === 'Priority') {
-        return b.priority - a.priority; // Sort by priority in descending order
+        return b.priority - a.priority; 
       } else if (ordering === 'Title') {
-        return a.title.localeCompare(b.title); // Sort by title in ascending order
+        return a.title.localeCompare(b.title); 
       }
       return 0;
     });
@@ -114,7 +114,7 @@ const Home = () => {
           title: status,
           icon: statusIcons[status],
           tickets: filteredTickets,
-          count: filteredTickets.length, // Add count of tickets
+          count: filteredTickets.length, 
         };
       });
     } else if (grouping === 'Priority') {
@@ -125,7 +125,7 @@ const Home = () => {
           title: priorityTitles[priority],
           icon: priorityIcons[priority],
           tickets: filteredTickets,
-          count: filteredTickets.length, // Add count of tickets
+          count: filteredTickets.length, 
         };
       });
     } else if (grouping === 'User') {
@@ -137,7 +137,7 @@ const Home = () => {
         return {
           title: username,
           tickets: filteredTickets,
-          count: filteredTickets.length, // Add count of tickets
+          count: filteredTickets.length, 
         };
       });
     }
@@ -180,7 +180,7 @@ const Home = () => {
     </div>
   )
 }
-// Inline styles
+
 
 const iconStyle = { marginRight: '10px' };
 
@@ -191,13 +191,11 @@ const gridLayoutStyle = {
   height: 'fit-content',
   backgroundColor: '#ececec',
   display: 'grid',
-  // gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', // Ensures columns fit within the screen
   gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-  gap: '20px', // Space between the columns
-  // paddingLeft: '20px',
-  padding: '10px', // Remove padding to prevent overflow
-  boxSizing: 'border-box', // Ensures padding and border are included within the width
-  overflowX: 'hidden', // Prevent horizontal overflow
+  gap: '20px', 
+  padding: '10px',
+  boxSizing: 'border-box',
+  overflowX: 'hidden',
  
 };
 
@@ -206,7 +204,7 @@ const columnStyle = {
   padding: '10px',
   display: 'flex', 
   flexDirection: 'column', 
-  height: 'auto', // Full height to ensure background covers scrollable area
+  height: 'auto',
   boxSizing: 'border-box',
 };
 const titleAreaStyle = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' };

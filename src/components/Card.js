@@ -1,5 +1,4 @@
-import React from 'react'
-import { ReactComponent as DotsIcon } from '../assets/icons_FEtask/3 dot menu.svg';
+import React from 'react';
 import user from '../assets/User.png';
 import dot from '../assets/Dot.png';
 import { ReactComponent as NoPriorityIcon } from '../assets/icons_FEtask/No-priority.svg';
@@ -72,8 +71,8 @@ const cardStyle = {
   borderRadius: '5px',
   padding: '15px',
   marginBottom: '15px',
-  width: '100%', // Make card width 100% of column width
-  boxSizing: 'border-box', // Prevents padding from affecting width calculation
+  width: '100%', 
+  boxSizing: 'border-box', 
   display: 'flex',
   flexDirection: 'column',
   gap: '12px',

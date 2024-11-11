@@ -4,16 +4,16 @@ import { ReactComponent as DisplayIcon } from '../assets/icons_FEtask/Display.sv
 
 
 function DisplayDropdown({grouping,setGrouping,ordering,setOrdering}) {
-  const [isOpen, setIsOpen] = useState(false); // Controls dropdown visibility
+  const [isOpen, setIsOpen] = useState(false); 
   const dropdownRef = useRef(null); 
 
-  // Toggle the dropdown visibility
+  
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false); // Close dropdown if click is outside
+        setIsOpen(false); 
       }
     };
   
@@ -63,7 +63,7 @@ function DisplayDropdown({grouping,setGrouping,ordering,setOrdering}) {
 // Inline styles
 const containerStyle = {
   width: 'fit-content',
-  position: 'relative', // Ensure the dropdown is positioned correctly
+  position: 'relative', 
   boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
 };
 
@@ -90,15 +90,15 @@ const dropdownLabelStyle = {
 
 const dropdownStyle = {
   marginTop: '10px',
-  backgroundColor: '#f4f4f4', // Lighter grey background
-  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // A little stronger shadow for better visibility
+  backgroundColor: '#f4f4f4', 
+  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
   padding: '10px',
   borderRadius: '5px',
-  position: 'absolute', // Position it absolutely relative to the container
-  top: '100%', // Position it directly below the header
+  position: 'absolute', 
+  top: '100%', 
   left: '0',
   width: '300px',
-  zIndex: '10', // Ensure the dropdown appears on top of other content
+  zIndex: '10', 
 };
 
 const fieldStyle = {
@@ -112,7 +112,7 @@ const selectStyle = {
   padding: '5px',
   borderRadius: '5px',
   border: '1px solid #ccc',
-  fontWeight: '500',  //make it semi bold
+  fontWeight: '500',  
 };
 
 export default DisplayDropdown;
