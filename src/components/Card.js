@@ -87,13 +87,6 @@ const titleStyle = {
   gap: '5px',
 };
 
-const avatarStyle = {
-  width: '40px',
-  height: '40px',
-  borderRadius: '50%',
-  marginRight: '10px',
-};
-
 const descriptionStyle = {
   display: 'flex',
   alignItems: 'center',

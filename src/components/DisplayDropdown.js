@@ -80,9 +80,6 @@ const headerStyle = {
   border: '1px solid #d3d3d3'
 };
 
-const iconStyle = {
-  marginRight: '10px',
-};
 
 const dropdownLabelStyle = {
   fontSize: '16px',
